@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 // MARK: - UIViewController
 class HomeViewController: UIViewController {
@@ -60,14 +61,19 @@ extension HomeViewController: UITableViewDataSource {
         
         // access image url from news
         if let url = news.media.first?.metadata.last?.url{
-            ApiService.shared.downloadImage(url: url) { result in
-                switch result {
-                case .success(let image):
-                    cell.thumbImageView.image = image
-                case .failure:
-                    cell.thumbImageView.image = nil
-                }
-            }
+            
+            // manually handling image
+//            ApiService.shared.downloadImage(url: url) { result in
+//                switch result {
+//                case .success(let image):
+//                    cell.thumbImageView.image = image
+//                case .failure:
+//                    cell.thumbImageView.image = nil
+//                }
+//            }
+            
+            // handling image with SDWebImage
+            cell.thumbImageView.sd_setImage(with: URL(string: url))
         }
         else {
             cell.thumbImageView.image = nil

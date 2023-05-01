@@ -20,6 +20,7 @@
 		898F9DA929FC01D100D0A758 /* MediaMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9DA829FC01D100D0A758 /* MediaMetadata.swift */; };
 		898F9DAC29FC077500D0A758 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9DAB29FC077500D0A758 /* ApiService.swift */; };
 		898F9DAF29FC169C00D0A758 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9DAE29FC169C00D0A758 /* HomeViewController.swift */; };
+		898F9DB129FFF53B00D0A758 /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9DB029FFF53B00D0A758 /* NewsViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		898F9DA829FC01D100D0A758 /* MediaMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaMetadata.swift; sourceTree = "<group>"; };
 		898F9DAB29FC077500D0A758 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		898F9DAE29FC169C00D0A758 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		898F9DB029FFF53B00D0A758 /* NewsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
 		9CC1B216281DD96B4CBAF276 /* Pods_NewsReaderApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsReaderApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				898F9DAE29FC169C00D0A758 /* HomeViewController.swift */,
+				898F9DB029FFF53B00D0A758 /* NewsViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				898F9D8E29FB51B800D0A758 /* AppDelegate.swift in Sources */,
 				898F9DAF29FC169C00D0A758 /* HomeViewController.swift in Sources */,
 				898F9DA529FC005B00D0A758 /* News.swift in Sources */,
+				898F9DB129FFF53B00D0A758 /* NewsViewCell.swift in Sources */,
 				898F9DAC29FC077500D0A758 /* ApiService.swift in Sources */,
 				898F9D9029FB51B800D0A758 /* SceneDelegate.swift in Sources */,
 			);

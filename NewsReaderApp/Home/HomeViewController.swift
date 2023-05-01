@@ -51,10 +51,27 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "news_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "custom_news_cell", for: indexPath) as! NewsViewCell
+        
         let news = latestNewsList[indexPath.row]
         
-        cell.textLabel?.text =  "\(indexPath.row + 1).  \(news.title)"
+        cell.titleLabel.text = news.title
+        cell.dateLabel.text = "\(news.publishDate) • \(news.section)"
+        
+        // access image url from news
+        if let url = news.media.first?.metadata.last?.url{
+            ApiService.shared.downloadImage(url: url) { result in
+                switch result {
+                case .success(let image):
+                    cell.thumbImageView.image = image
+                case .failure:
+                    cell.thumbImageView.image = nil
+                }
+            }
+        }
+        else {
+            cell.thumbImageView.image = nil
+        }
         
         return cell
     }

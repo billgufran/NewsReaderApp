@@ -115,6 +115,8 @@ extension HomeViewController: UITableViewDataSource {
             cell.titleLabel.text = news.title
             cell.dateLabel.text = "\(news.publishDate) • \(news.section)"
             
+            cell.delegate = self
+            
             // access image url from news
             if let url = news.media.first?.metadata.last?.url{
                 
@@ -213,6 +215,20 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if scrollView != self.tableView {
             let page = Int(scrollView.contentOffset.x / scrollView.frame.width)
             pageControl?.currentPage = page
+        }
+    }
+}
+
+// MARK: - NewsViewCellDelegate
+extension HomeViewController: NewsViewCellDelegate {
+    func newsViewCellBookmarkButtonTapped(_ cell: NewsViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let news = latestNewsList[indexPath.row]
+            
+            CoreDataStorage.shared.addReadingList(news: news)
+            
+            let readingList = CoreDataStorage.shared.getReadingList()
+            print(readingList.count)
         }
     }
 }

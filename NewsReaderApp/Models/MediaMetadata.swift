@@ -27,4 +27,11 @@ struct MediaMetadata: Decodable {
         self.height = try container.decodeIfPresent(Double.self, forKey: .height) ?? 0
         self.width = try container.decodeIfPresent(Double.self, forKey: .width) ?? 0
     }
+    
+    init(url: String, format: String, height: Double, width: Double) {
+        self.url = url
+        self.format = format
+        self.height = height
+        self.width = width
+    }
 }

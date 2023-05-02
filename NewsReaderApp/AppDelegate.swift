@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +34,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    // MARK: - Core Data Stack
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "NewsReader")
+        container.loadPersistentStores { storeDescription, error in
+            if let error = error {
+                fatalError("Unresolved error \(error)")
+            }
+        }
+        return container
+    }()
+    
+    var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
+    func saveContext() {
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                fatalError("Unresolved error \(error)")
+            }
+        }
+    }
 }
 

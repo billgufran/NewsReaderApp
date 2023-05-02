@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     weak var refreshControl: UIRefreshControl!
     
+    weak var collectionView: UICollectionView?
     weak var pageControl: UIPageControl?
     
     var latestNewsList: [News] = []
@@ -23,6 +24,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // regidter NewsViewCell.xib
+        tableView.register(UINib(nibName: "NewsViewCell", bundle: nil), forCellReuseIdentifier: "custom_news_cell")
         
         // setup data source
         tableView.dataSource = self
@@ -36,9 +40,15 @@ class HomeViewController: UIViewController {
         
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.readingListDeleted(_:)), name: .deleteReadingList, object: nil)
+        
         refreshControl.beginRefreshing()
         loadLatestNews()
         loadTopNews()
+    }
+    
+    @objc func readingListDeleted(_ sender: Any) {
+        tableView.reloadData()
     }
     
     @objc func refresh(_ sender: Any) {
@@ -103,8 +113,10 @@ extension HomeViewController: UITableViewDataSource {
             
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
-            
+            self.collectionView = cell.collectionView
             cell.collectionView.reloadData()
+            
+            cell.delegate = self
             
             return cell
         } else {
@@ -114,6 +126,23 @@ extension HomeViewController: UITableViewDataSource {
             
             cell.titleLabel.text = news.title
             cell.dateLabel.text = "\(news.publishDate) • \(news.section)"
+            
+            // fill the bookmark button if the news is already added
+            if CoreDataStorage.shared.isAddedToReadingList(newsId: news.id) {
+                if #available(iOS 13.0, *) {
+                    cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                } else {
+                    // Fallback on earlier versions
+                }
+                cell.bookmarkButton.isEnabled = false
+            } else {
+                if #available(iOS 13.0, *) {
+                    cell.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                } else {
+                    // Fallback on earlier versions
+                }
+                cell.bookmarkButton.isEnabled = true
+            }
             
             cell.delegate = self
             
@@ -229,6 +258,21 @@ extension HomeViewController: NewsViewCellDelegate {
             
             let readingList = CoreDataStorage.shared.getReadingList()
             print(readingList.count)
+            
+            if #available(iOS 13.0, *) {
+                cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+            cell.bookmarkButton.isEnabled = false
         }
+    }
+}
+
+// MARK: - TopNewsListViewCellDelegate
+extension HomeViewController: TopNewsListViewCellDelegate {
+    func topNewsListViewCellPageControlValueChanged(_ cell: TopNewsListViewCell) {
+        let page = cell.pageControl.currentPage
+        collectionView?.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: true)
     }
 }

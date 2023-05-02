@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="custom_news_cell" rowHeight="105" id="e90-rj-sCY" customClass="NewsViewCell" customModule="NewsReaderApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="105"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e90-rj-sCY" id="lRO-rJ-LrP">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="105"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pJX-ad-aSJ">
+                        <rect key="frame" x="20" y="10" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="ExW-Fp-gVf"/>
+                            <constraint firstAttribute="width" constant="80" id="IR0-aB-70D"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv9-hk-IUD">
+                        <rect key="frame" x="110" y="9.9999999999999982" width="219" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date &amp; Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbI-NU-PI9">
+                        <rect key="frame" x="110" y="38.333333333333336" width="103" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxq-bz-Lwd">
+                        <rect key="frame" x="337" y="15.333333333333336" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="VzS-bl-h1a"/>
+                            <constraint firstAttribute="width" constant="36" id="vqR-vd-7tm"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="bookmark" catalog="system"/>
+                        <connections>
+                            <action selector="bookmarkButtonTap:" destination="e90-rj-sCY" eventType="touchUpInside" id="dpn-ff-pV7"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Sxq-bz-Lwd" firstAttribute="centerY" secondItem="lRO-rJ-LrP" secondAttribute="centerY" id="1k4-sb-8eF"/>
+                    <constraint firstAttribute="trailing" secondItem="Sxq-bz-Lwd" secondAttribute="trailing" constant="20" id="2Oa-a7-BVp"/>
+                    <constraint firstItem="pJX-ad-aSJ" firstAttribute="top" secondItem="lRO-rJ-LrP" secondAttribute="top" constant="10" id="7Ga-ns-h19"/>
+                    <constraint firstItem="Sxq-bz-Lwd" firstAttribute="leading" secondItem="zv9-hk-IUD" secondAttribute="trailing" constant="8" id="G5R-lu-DFE"/>
+                    <constraint firstAttribute="bottom" secondItem="hbI-NU-PI9" secondAttribute="bottom" priority="250" constant="10" id="JKJ-w1-xzp"/>
+                    <constraint firstItem="pJX-ad-aSJ" firstAttribute="leading" secondItem="lRO-rJ-LrP" secondAttribute="leading" constant="20" id="MMp-xB-t0D"/>
+                    <constraint firstItem="hbI-NU-PI9" firstAttribute="top" secondItem="zv9-hk-IUD" secondAttribute="bottom" constant="8" id="P8w-U8-Vhh"/>
+                    <constraint firstAttribute="bottom" secondItem="pJX-ad-aSJ" secondAttribute="bottom" constant="10" id="RVs-4l-S2V"/>
+                    <constraint firstItem="hbI-NU-PI9" firstAttribute="leading" secondItem="zv9-hk-IUD" secondAttribute="leading" id="Sxk-OY-GTY"/>
+                    <constraint firstItem="zv9-hk-IUD" firstAttribute="top" secondItem="pJX-ad-aSJ" secondAttribute="top" id="TjI-ci-NwC"/>
+                    <constraint firstItem="zv9-hk-IUD" firstAttribute="leading" secondItem="pJX-ad-aSJ" secondAttribute="trailing" constant="10" id="XxD-dj-kgT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bookmarkButton" destination="Sxq-bz-Lwd" id="MUT-f1-PXJ"/>
+                <outlet property="dateLabel" destination="hbI-NU-PI9" id="ecO-5b-cES"/>
+                <outlet property="thumbImageView" destination="pJX-ad-aSJ" id="drD-a7-SKQ"/>
+                <outlet property="titleLabel" destination="zv9-hk-IUD" id="6mx-G2-abI"/>
+            </connections>
+            <point key="canvasLocation" x="-51" y="79"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

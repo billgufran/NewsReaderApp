@@ -53,6 +53,8 @@ class CoreDataStorage {
         newsData.publishDate = news.publishDate
         newsData.mediaUrl = news.media.first?.metadata.last?.url
         
+        NotificationCenter.default.post(name: .addReadingList, object: nil)
+        
         try? context.save()
     }
     
@@ -61,6 +63,30 @@ class CoreDataStorage {
         let data = (try? context.fetch(fetchRequest)) ?? []
         let newsList = data.compactMap { $0.dto } // return `newsData in newsData.dto`
         return newsList
+    }
+    
+    func deleteReadingList(newsId: Int) {
+        let fetchRequest = NewsData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "newsId = \(newsId)")
+        
+        if let data = try? context.fetch(fetchRequest).first {
+            context.delete(data)
+            
+            NotificationCenter.default.post(name: .deleteReadingList, object: nil)
+            
+            try? context.save()
+        }
+    }
+    
+    func isAddedToReadingList(newsId: Int) -> Bool {
+        let fetchRequest = NewsData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "newsId = \(newsId)")
+        
+        if (try? context.fetch(fetchRequest).first) != nil {
+            return true
+        } else {
+            return false
+        }
     }
 }
 

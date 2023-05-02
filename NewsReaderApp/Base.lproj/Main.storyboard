@@ -100,18 +100,33 @@
         <!--Reading List-->
         <scene sceneID="daM-xi-pRh">
             <objects>
-                <viewController id="bUZ-nm-4Cf" sceneMemberID="viewController">
+                <viewController id="bUZ-nm-4Cf" customClass="ReadingListViewController" customModule="NewsReaderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ux2-fe-GeS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-x0-E9A">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xNJ-3g-21o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fJQ-x0-E9A" firstAttribute="leading" secondItem="xNJ-3g-21o" secondAttribute="leading" id="Qsq-Tm-lHK"/>
+                            <constraint firstItem="fJQ-x0-E9A" firstAttribute="trailing" secondItem="xNJ-3g-21o" secondAttribute="trailing" id="RfT-Xh-kB6"/>
+                            <constraint firstItem="fJQ-x0-E9A" firstAttribute="bottom" secondItem="xNJ-3g-21o" secondAttribute="bottom" id="d7t-8e-TLS"/>
+                            <constraint firstItem="fJQ-x0-E9A" firstAttribute="top" secondItem="xNJ-3g-21o" secondAttribute="top" id="kZB-VD-kYj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reading List" id="zJ6-cV-iOs"/>
+                    <connections>
+                        <outlet property="tableView" destination="fJQ-x0-E9A" id="02I-2M-2Yu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJE-Li-Rut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2158" y="-530"/>
+            <point key="canvasLocation" x="2156.4885496183206" y="-530.28169014084506"/>
         </scene>
         <!--Home-->
         <scene sceneID="scC-9e-Eey">
@@ -133,68 +148,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="custom_news_cell" rowHeight="105" id="dVC-3Y-vyr" customClass="NewsViewCell" customModule="NewsReaderApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="105"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dVC-3Y-vyr" id="CJW-dZ-cug">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="105"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0eh-LP-oCy">
-                                                    <rect key="frame" x="20" y="10" width="80" height="85"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="U24-IJ-XAa"/>
-                                                        <constraint firstAttribute="height" constant="80" id="rmq-Q2-40Y"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bY9-Tx-Jac">
-                                                    <rect key="frame" x="110" y="9.9999999999999982" width="219" height="20.333333333333329"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date &amp; Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcG-Wh-YCK">
-                                                    <rect key="frame" x="110" y="38.333333333333336" width="103" height="18"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yF7-Fx-Tpd">
-                                                    <rect key="frame" x="337" y="34.666666666666664" width="36" height="35.999999999999993"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="36" id="eCh-or-WoJ"/>
-                                                        <constraint firstAttribute="height" constant="36" id="gA0-7k-Uvi"/>
-                                                    </constraints>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="bookmark" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="bookmarkButtonTap:" destination="dVC-3Y-vyr" eventType="touchUpInside" id="VG6-Ev-Uty"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="0eh-LP-oCy" secondAttribute="bottom" constant="10" id="0SQ-Bd-5XB"/>
-                                                <constraint firstItem="bY9-Tx-Jac" firstAttribute="leading" secondItem="0eh-LP-oCy" secondAttribute="trailing" constant="10" id="5eE-wi-LoN"/>
-                                                <constraint firstItem="zcG-Wh-YCK" firstAttribute="leading" secondItem="bY9-Tx-Jac" secondAttribute="leading" id="LAA-RW-sXP"/>
-                                                <constraint firstItem="0eh-LP-oCy" firstAttribute="top" secondItem="CJW-dZ-cug" secondAttribute="top" constant="10" id="Mf0-le-qtm"/>
-                                                <constraint firstItem="yF7-Fx-Tpd" firstAttribute="leading" secondItem="bY9-Tx-Jac" secondAttribute="trailing" constant="8" id="RVJ-zw-zMf"/>
-                                                <constraint firstItem="zcG-Wh-YCK" firstAttribute="top" secondItem="bY9-Tx-Jac" secondAttribute="bottom" constant="8" id="ThB-Al-d0w"/>
-                                                <constraint firstItem="bY9-Tx-Jac" firstAttribute="top" secondItem="0eh-LP-oCy" secondAttribute="top" id="TvB-2C-wzW"/>
-                                                <constraint firstAttribute="trailing" secondItem="yF7-Fx-Tpd" secondAttribute="trailing" constant="20" id="Wx5-5C-7Tn"/>
-                                                <constraint firstItem="yF7-Fx-Tpd" firstAttribute="centerY" secondItem="CJW-dZ-cug" secondAttribute="centerY" id="f13-s2-cyx"/>
-                                                <constraint firstAttribute="bottom" secondItem="zcG-Wh-YCK" secondAttribute="bottom" priority="250" constant="10" id="h9W-mf-mDP"/>
-                                                <constraint firstItem="0eh-LP-oCy" firstAttribute="leading" secondItem="CJW-dZ-cug" secondAttribute="leading" constant="20" id="oHH-Tk-Fdg"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="bookmarkButton" destination="yF7-Fx-Tpd" id="S1k-gZ-vBc"/>
-                                            <outlet property="dateLabel" destination="zcG-Wh-YCK" id="THD-3X-qu7"/>
-                                            <outlet property="thumbImageView" destination="0eh-LP-oCy" id="7fy-cY-eS6"/>
-                                            <outlet property="titleLabel" destination="bY9-Tx-Jac" id="yqC-zO-a23"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="top_news_list_cell" rowHeight="379" id="Ehm-V3-fW6" customClass="TopNewsListViewCell" customModule="NewsReaderApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="198.66666793823242" width="393" height="379"/>
+                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="379"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ehm-V3-fW6" id="M0e-OH-FYu">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="379"/>
@@ -235,13 +190,13 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U2p-XC-Rxk">
                                                                         <rect key="frame" x="20" y="10" width="353" height="183.66666666666666"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-ru-Olj">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="News Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-ru-Olj">
                                                                         <rect key="frame" x="20" y="203.66666666666666" width="353" height="20.333333333333343"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date &amp; Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKE-0K-3hm">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Date &amp; Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKE-0K-3hm">
                                                                         <rect key="frame" x="20" y="228" width="353" height="18"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -273,6 +228,9 @@
                                                     <rect key="frame" x="20" y="328" width="353" height="51"/>
                                                     <color key="pageIndicatorTintColor" systemColor="separatorColor"/>
                                                     <color key="currentPageIndicatorTintColor" name="AccentColor"/>
+                                                    <connections>
+                                                        <action selector="pageControlValueChanged:" destination="Ehm-V3-fW6" eventType="valueChanged" id="Uiv-3F-eoK"/>
+                                                    </connections>
                                                 </pageControl>
                                             </subviews>
                                             <constraints>
@@ -375,7 +333,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>

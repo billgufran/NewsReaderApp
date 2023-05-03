@@ -24,10 +24,10 @@ class NewsViewCell: UITableViewCell {
         // Initialization code'
         setup()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -35,7 +35,7 @@ class NewsViewCell: UITableViewCell {
         thumbImageView.layer.cornerRadius = 8
         thumbImageView.layer.masksToBounds = true
     }
-
+    
     @IBAction func bookmarkButtonTap(_ sender: Any) {
         delegate?.newsViewCellBookmarkButtonTapped(self)
     }

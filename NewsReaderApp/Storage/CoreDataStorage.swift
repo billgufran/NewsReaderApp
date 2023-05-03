@@ -52,6 +52,7 @@ class CoreDataStorage {
         newsData.section = news.section
         newsData.publishDate = news.publishDate
         newsData.mediaUrl = news.media.first?.metadata.last?.url
+        newsData.addedAt = Date()
         
         NotificationCenter.default.post(name: .addReadingList, object: nil)
         
@@ -61,7 +62,16 @@ class CoreDataStorage {
     func getReadingList() -> [News] {
         let fetchRequest = NewsData.fetchRequest()
         let data = (try? context.fetch(fetchRequest)) ?? []
-        let newsList = data.compactMap { $0.dto } // return `newsData in newsData.dto`
+        
+        let sortedData = data.sorted { news0, news1 in
+            if let date0 = news0.addedAt, let date1 = news1.addedAt {
+                return date0 > date1
+            } else {
+                return false
+            }
+        }
+        
+        let newsList = sortedData.compactMap { $0.dto } // return `newsData in newsData.dto`
         return newsList
     }
     

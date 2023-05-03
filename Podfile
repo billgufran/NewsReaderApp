@@ -8,4 +8,6 @@ target 'NewsReaderApp' do
   # Pods for NewsReaderApp
   pod 'Alamofire'
   pod 'SDWebImage'
+  pod 'FirebaseAuth'
+  pod 'IQKeyboardManagerSwift'
 end

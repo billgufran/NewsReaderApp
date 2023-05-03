@@ -22,10 +22,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
-        // regidter NewsViewCell.xib
+        // register NewsViewCell.xib
         tableView.register(UINib(nibName: "NewsViewCell", bundle: nil), forCellReuseIdentifier: "custom_news_cell")
         
         // setup data source
@@ -55,10 +55,12 @@ class HomeViewController: UIViewController {
         loadLatestNews()
         loadTopNews()
     }
-
+    
     // MARK: - Helpers
     func loadLatestNews() {
-        ApiService.shared.loadLatestNews { result in
+        ApiService.shared.loadLatestNews { [weak self] result in
+            guard let `self` = self else { return }
+            
             self.refreshControl.endRefreshing()
             switch result {
             case .success(let newsList):
@@ -71,7 +73,9 @@ class HomeViewController: UIViewController {
     }
     
     func loadTopNews() {
-        ApiService.shared.loadTopNews { result in
+        ApiService.shared.loadTopNews { [weak self] result in
+            guard let `self` = self else { return }
+            
             self.refreshControl.endRefreshing()
             switch result {
             case .success(let newsList):
@@ -82,8 +86,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
-
 }
 
 
@@ -150,14 +152,17 @@ extension HomeViewController: UITableViewDataSource {
             if let url = news.media.first?.metadata.last?.url{
                 
                 // manually handling image
-    //            ApiService.shared.downloadImage(url: url) { result in
-    //                switch result {
-    //                case .success(let image):
-    //                    cell.thumbImageView.image = image
-    //                case .failure:
-    //                    cell.thumbImageView.image = nil
-    //                }
-    //            }
+                /**
+                     ApiService.shared.downloadImage(url: url) { result in
+                         switch result {
+                         case .success(let image):
+                             cell.thumbImageView.image = image
+                         case .failure:
+                             cell.thumbImageView.image = nil
+                         }
+                     }
+                 */
+
                 
                 // handling image with SDWebImage
                 cell.thumbImageView.sd_setImage(with: URL(string: url))
@@ -168,8 +173,6 @@ extension HomeViewController: UITableViewDataSource {
             
             return cell
         }
-        
-       
     }
 }
 
@@ -181,12 +184,6 @@ extension HomeViewController: UITableViewDelegate {
         }
         
         let news = latestNewsList[indexPath.row]
-        
-        // Showing alert
-//        let alert = UIAlertController(title: news.title, message: news.url, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Okay", style: .default))
-//
-//        present(alert, animated: true)
         
         if let url = URL(string: news.url) {
             let controller = SFSafariViewController(url: url)

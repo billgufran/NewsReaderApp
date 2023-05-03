@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		22723DB7E508809384AC1B87 /* Pods_NewsReaderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC1B216281DD96B4CBAF276 /* Pods_NewsReaderApp.framework */; };
+		895074892A02993F00C1505C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 895074882A02993F00C1505C /* GoogleService-Info.plist */; };
+		8950748C2A029AC000C1505C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8950748B2A029AC000C1505C /* Login.storyboard */; };
+		8950748E2A029CC600C1505C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950748D2A029CC600C1505C /* RegisterViewController.swift */; };
+		895074902A02A56700C1505C /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950748F2A02A56700C1505C /* UIViewControllerExtensions.swift */; };
+		895074932A02A91A00C1505C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895074922A02A91A00C1505C /* ProfileViewController.swift */; };
 		898F80E12A0146E700F203EF /* NewsReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 898F80DF2A0146E700F203EF /* NewsReader.xcdatamodeld */; };
 		898F80E42A0149B900F203EF /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E32A0149B900F203EF /* CoreDataStorage.swift */; };
 		898F80E72A0151E900F203EF /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80E62A0151E900F203EF /* ReadingListViewController.swift */; };
@@ -15,7 +20,7 @@
 		898F80EC2A01587500F203EF /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F80EB2A01587500F203EF /* NotificationExtensions.swift */; };
 		898F9D8E29FB51B800D0A758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9D8D29FB51B800D0A758 /* AppDelegate.swift */; };
 		898F9D9029FB51B800D0A758 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9D8F29FB51B800D0A758 /* SceneDelegate.swift */; };
-		898F9D9229FB51B800D0A758 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9D9129FB51B800D0A758 /* ViewController.swift */; };
+		898F9D9229FB51B800D0A758 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F9D9129FB51B800D0A758 /* LoginViewController.swift */; };
 		898F9D9529FB51B800D0A758 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898F9D9329FB51B800D0A758 /* Main.storyboard */; };
 		898F9D9729FB51B900D0A758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 898F9D9629FB51B900D0A758 /* Assets.xcassets */; };
 		898F9D9A29FB51B900D0A758 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898F9D9829FB51B900D0A758 /* LaunchScreen.storyboard */; };
@@ -33,6 +38,11 @@
 /* Begin PBXFileReference section */
 		32EB4CB989EA9FDACC0541E9 /* Pods-NewsReaderApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsReaderApp.release.xcconfig"; path = "Target Support Files/Pods-NewsReaderApp/Pods-NewsReaderApp.release.xcconfig"; sourceTree = "<group>"; };
 		3806B99909CA45B87A3CA2C9 /* Pods-NewsReaderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsReaderApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsReaderApp/Pods-NewsReaderApp.debug.xcconfig"; sourceTree = "<group>"; };
+		895074882A02993F00C1505C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8950748B2A029AC000C1505C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		8950748D2A029CC600C1505C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8950748F2A02A56700C1505C /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		895074922A02A91A00C1505C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		898F80E02A0146E700F203EF /* NewsReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsReader.xcdatamodel; sourceTree = "<group>"; };
 		898F80E32A0149B900F203EF /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		898F80E62A0151E900F203EF /* ReadingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +51,7 @@
 		898F9D8A29FB51B800D0A758 /* NewsReaderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsReaderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		898F9D8D29FB51B800D0A758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		898F9D8F29FB51B800D0A758 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		898F9D9129FB51B800D0A758 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		898F9D9129FB51B800D0A758 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		898F9D9429FB51B800D0A758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		898F9D9629FB51B900D0A758 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		898F9D9929FB51B900D0A758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,6 +97,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8950748A2A029AA900C1505C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8950748B2A029AC000C1505C /* Login.storyboard */,
+				898F9D9129FB51B800D0A758 /* LoginViewController.swift */,
+				8950748D2A029CC600C1505C /* RegisterViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		895074912A02A90E00C1505C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				895074922A02A91A00C1505C /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		898F80E22A0149A600F203EF /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				898F80EB2A01587500F203EF /* NotificationExtensions.swift */,
+				8950748F2A02A56700C1505C /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -132,6 +161,8 @@
 		898F9D8C29FB51B800D0A758 /* NewsReaderApp */ = {
 			isa = PBXGroup;
 			children = (
+				895074912A02A90E00C1505C /* Profile */,
+				8950748A2A029AA900C1505C /* Login */,
 				898F80EA2A01586000F203EF /* Extensions */,
 				898F80E52A0151C100F203EF /* ReadingList */,
 				898F80E22A0149A600F203EF /* Storage */,
@@ -140,10 +171,10 @@
 				898F9DA129FBFFFE00D0A758 /* Models */,
 				898F9D8D29FB51B800D0A758 /* AppDelegate.swift */,
 				898F9D8F29FB51B800D0A758 /* SceneDelegate.swift */,
-				898F9D9129FB51B800D0A758 /* ViewController.swift */,
 				898F9D9329FB51B800D0A758 /* Main.storyboard */,
 				898F9D9629FB51B900D0A758 /* Assets.xcassets */,
 				898F9D9829FB51B900D0A758 /* LaunchScreen.storyboard */,
+				895074882A02993F00C1505C /* GoogleService-Info.plist */,
 				898F9D9B29FB51B900D0A758 /* Info.plist */,
 				898F80DF2A0146E700F203EF /* NewsReader.xcdatamodeld */,
 			);
@@ -243,6 +274,8 @@
 			files = (
 				898F9D9A29FB51B900D0A758 /* LaunchScreen.storyboard in Resources */,
 				898F80E92A01528300F203EF /* NewsViewCell.xib in Resources */,
+				8950748C2A029AC000C1505C /* Login.storyboard in Resources */,
+				895074892A02993F00C1505C /* GoogleService-Info.plist in Resources */,
 				898F9D9729FB51B900D0A758 /* Assets.xcassets in Resources */,
 				898F9D9529FB51B800D0A758 /* Main.storyboard in Resources */,
 			);
@@ -297,19 +330,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				898F9D9229FB51B800D0A758 /* ViewController.swift in Sources */,
+				898F9D9229FB51B800D0A758 /* LoginViewController.swift in Sources */,
 				898F9DA329FC001400D0A758 /* NewsResponse.swift in Sources */,
 				898F9DA729FC016A00D0A758 /* Media.swift in Sources */,
 				898F9DB52A000C4400D0A758 /* TopNewsViewCell.swift in Sources */,
+				895074902A02A56700C1505C /* UIViewControllerExtensions.swift in Sources */,
 				898F80E12A0146E700F203EF /* NewsReader.xcdatamodeld in Sources */,
 				898F9DA929FC01D100D0A758 /* MediaMetadata.swift in Sources */,
 				898F9DB32A0007B800D0A758 /* TopNewsListViewCell.swift in Sources */,
 				898F9D8E29FB51B800D0A758 /* AppDelegate.swift in Sources */,
+				895074932A02A91A00C1505C /* ProfileViewController.swift in Sources */,
 				898F9DAF29FC169C00D0A758 /* HomeViewController.swift in Sources */,
 				898F9DA529FC005B00D0A758 /* News.swift in Sources */,
 				898F9DB129FFF53B00D0A758 /* NewsViewCell.swift in Sources */,
 				898F9DAC29FC077500D0A758 /* ApiService.swift in Sources */,
 				898F80E42A0149B900F203EF /* CoreDataStorage.swift in Sources */,
+				8950748E2A029CC600C1505C /* RegisterViewController.swift in Sources */,
 				898F80E72A0151E900F203EF /* ReadingListViewController.swift in Sources */,
 				898F80EC2A01587500F203EF /* NotificationExtensions.swift in Sources */,
 				898F9D9029FB51B800D0A758 /* SceneDelegate.swift in Sources */,
